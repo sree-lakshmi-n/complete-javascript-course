@@ -4,8 +4,8 @@
 // 1. Declare variables called 'country', 'continent' and 'population' and
 // assign their values according to your own country (population in millions)
 // 2. Log their values to the console 
-let country = 'India';
-let continent = 'Asia';
+const country = 'India';
+const continent = 'Asia';
 let population = 1380000000;
 console.log("My country: " + country + "\nMy continent: " + continent +
     "\nMy Population: " + population);
@@ -22,3 +22,10 @@ console.log(typeof isIsland);
 console.log(typeof population);
 console.log(typeof country);
 console.log(typeof language);
+
+// LECTURE: let, const and var
+// 1. Set the value of 'language' to the language spoken where you live (some countries have multiple languages, but just choose one)
+// 2. Think about which variables should be const variables (which values will never change, and which might change?). Then, change these variables to const.
+// 3. Try to change one of the changed variables now, and observe what happens
+language = 'tamil';
+// country = 'Japan';  // Assignment to constant variable error
