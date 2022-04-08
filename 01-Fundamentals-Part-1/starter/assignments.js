@@ -1,3 +1,7 @@
+console.log(`--------------------- 
+Assignments
+--------------------- 
+`);
 // JavaScript Fundamentals – Part 1
 
 // LECTURE: Values and Variables
