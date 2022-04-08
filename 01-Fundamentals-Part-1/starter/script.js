@@ -50,3 +50,42 @@ x >= y;
 x == y;
 x < y;
 x > y;
+
+// String and template literals
+const str = 'I\'m ' + firstName + ' ' + lastName + '. My job is ' + job + '.';
+console.log(str);
+
+// template literals makes this easier
+const temp = `I'm ${firstName} ${lastName}. My job is ${job}.`;
+console.log(temp);
+
+// Mutiline strings
+const multistr = 'One\n\
+Two\n\
+Three';
+console.log(multistr);
+
+//Template literals makes this cleaner
+const multitemp = `One
+Two
+Three`;
+console.log(multitemp);
+
+//Temp literals can be used for just strings too. No apostrophe issues.
+console.log(`We're John Doe & Jane Doe.`)
+
+// if/else statements
+const givenAge = 12;
+const isOldEnough = givenAge >= 18;
+if (isOldEnough) {
+    console.log('Sarah can start driving license. 🚗');
+}
+else {
+    console.log(`Sarah is too young. Wait another ${18 - givenAge} years :-)`);
+}
+
+// tells the century in which a person was born
+if (birthYear <= 2000)
+    console.log('20th century');
+else
+    console.log('21st century');
