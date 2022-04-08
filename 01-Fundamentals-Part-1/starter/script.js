@@ -93,3 +93,40 @@ if (birthYear <= 2000)
     console.log('20th century');
 else
     console.log('21st century');
+
+// Type conversion and type coercion
+// Type conversion -> when we typecast one variable to another (explicit type conversion)
+// Type coercion -> When js typecasts variables under some circumstances (implicit type conversion)
+
+/* Type Conversion */
+const inputYear = '1991';
+console.log(inputYear + 18);
+console.log(Number(inputYear), inputYear);  // type conv of inputYear from String to number
+console.log(Number(inputYear) + 18);
+
+// Converting a non-number to number
+console.log(Number('Jane'));    // results in NaN
+console.log(typeof NaN);    // typeof NaN is number, interestingly
+// NaN denotes invalid number
+
+// to type cast to String
+console.log(18, String(18));
+console.log(inputYear + String(18));
+
+// We cannot type cast to undefined or null
+// We can convert to Number, String, or Boolean
+
+/* Type Coercion */
+console.log('I am ' + 23 + ' years old.');  // 23 is converted to String by JS and then concatenated.
+console.log('23' - '10' - 3);   // Strings converted to numbers by JS
+// '-' triggers to numbers coercion
+console.log('23' + '10' + 3);
+// '-' triggers to strings coercion
+
+let n = 1 + '1';    // '11'
+n -= 1;     // '11'-1 -> 11-1 = 10
+console.log(n);     // 10
+
+console.log(2 + 3 + 4 + '5'); //2+3+4+'5' = 9+'5' = '95'
+console.log('10' - '4' - '3' - 2 + '5');
+// '10' - '4' - '3' - 2 + '5' = 1 + '5' = 15
