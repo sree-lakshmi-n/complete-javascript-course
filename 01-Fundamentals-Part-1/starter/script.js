@@ -198,3 +198,37 @@ else {
 if (favouriteNum != 23) {
     console.log("Why not 23?");
 }
+
+// Boolean logic
+// AND, OR, and NOT operators
+let yourAge = 16;
+let a = yourAge >= 20;
+let b = yourAge < 30;
+console.log(a);  // false
+console.log(b);   // true
+console.log(!a);   // true
+console.log(!b);  // false
+console.log(a && b);  // false
+console.log(a || b);   // true
+console.log(!a || b);   // true
+console.log(a || !b);   // false
+console.log(!a && b);   // true
+console.log(a && !b);   // false
+
+console.log(`________________________`);
+// Logical Operators
+const hasDriversLicense = true;
+const hasGoodVision = true;
+const isTired = true;
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+console.log(hasDriversLicense && hasGoodVision && isTired);
+const shouldDrive = hasDriversLicense && hasGoodVision && !isTired;
+if (shouldDrive) {
+    console.log('Sarah is able to drive.');
+}
+else {
+    console.log('Someone else should drive...');
+}
