@@ -164,3 +164,37 @@ console.log(Number(''))
 // Number('') is 0 which can be a valid value too. It's a falsy value, but.
 // Hence, take care while using falsy value concepts to check if a variable is defined
 
+// Equality operator
+// === strict equality operator
+// Only returns true if two values are exactly equal. 
+// Doesn't perform type coercion
+// == loose equality operator
+// Does type coercion and compares the two values
+console.log(18 == 18);      // True (loose =)
+console.log('18' == 18);   // True (loose =)
+console.log(18 === 18);   // True (strict =)
+console.log('18' === 18);   // False (diff types) (strict =)
+
+// When comparing values, always use strict equality operator
+
+// prompt function - alerts user to enter something. We get the value the user enter as a String
+let favouriteNum = prompt("What is your favourite number?")
+console.log(favouriteNum, typeof favouriteNum);
+favouriteNum = Number(favouriteNum);
+console.log(favouriteNum, typeof favouriteNum);
+if (favouriteNum === 23) {
+    console.log("Cool! 23 is an amazing number!");
+}
+else if (favouriteNum === 7) {
+    console.log("7 is also a cool number.");
+}
+else {
+    console.log("Number is not 7 or 23.");
+}
+
+// different or not equal to operator
+// Strict -> !==
+// Loose -> !=
+if (favouriteNum != 23) {
+    console.log("Why not 23?");
+}
