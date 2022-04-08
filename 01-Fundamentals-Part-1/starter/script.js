@@ -130,3 +130,37 @@ console.log(n);     // 10
 console.log(2 + 3 + 4 + '5'); //2+3+4+'5' = 9+'5' = '95'
 console.log('10' - '4' - '3' - 2 + '5');
 // '10' - '4' - '3' - 2 + '5' = 1 + '5' = 15
+
+// truthy and falsy values
+
+// Falsy values
+// 0, '', undefined, null, NaN
+// When type converted/coerced to boolean, these falsy values will become false.
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('define'));
+console.log(Boolean([]));
+console.log(Boolean(''));
+
+// if-else conditions and conditional operators type coerce falsy/truthy values to boolean
+const money = 0;
+if (money)
+    console.log('Don\'t spend it all!');
+else
+    console.log('You should get a job!');
+
+// to check if a variable is defined
+let height;
+// let height = 0 // BUG!
+// 0  is a perfectly valid value. Still, it's a falsy value.
+if (height) {
+    console.log('Yay! height is defined.');
+}
+else {
+    console.log('height is undefined.');
+}
+
+console.log(Number(''))
+// Number('') is 0 which can be a valid value too. It's a falsy value, but.
+// Hence, take care while using falsy value concepts to check if a variable is defined
+
