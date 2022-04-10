@@ -278,3 +278,23 @@ else if (day === 'saturday' || day === 'sunday') {
 else {
     console.log('Not a valid day');
 }
+
+// Statements and expressions
+// Expressions produce a value in js
+// eg., 1991, 3+4, true&&false
+// Statements doesn't produce values. It declares variables, performs actions.
+// eg., if-else statements, switch statements
+'hello world' // expression
+const mystr = 'hello world';    // statement
+// In a template literal, you can only insert expressions, not statements
+console.log(`I'm ${mystr}`);    // mystr is expression. Hence, can be inserted.
+// console.log(`I'm ${const newstr = 'hello world'; }`);   // throws error
+// can't insert expressions in template literals
+
+// The Conditional (ternary) operator
+const newAge = 23;
+newAge >= 18 ? console.log('I like to drink wine!') : console.log('I don\'t like wine');
+// An operator always produces a value. Hence, it's an expression.
+const drink = newAge >= 18 ? true : false;
+console.log(drink);
+console.log(`I ${newAge >= 18 ? 'like' : 'don\'t like'} to drink wine!`);
