@@ -13,7 +13,8 @@
 let hasDriversLicense = false;
 const passTest = true;
 if (passTest) {
-    hasDriverLicense = true;
+    //hasDriverLicense = true;
+    hasDriversLicense = true;
 }
 if (hasDriversLicense) {
     console.log('I can drive :D');
@@ -35,3 +36,23 @@ if (hasDriversLicense) {
 // Throws 'Uncaught SyntaxError: Unexpected strict mode reserved word' error
 //const private = true;
 // Unexpected strict mode reserved word' error
+
+// Function
+function mylogger() {
+    console.log('My name is Jane Doe');
+}
+// calling/ running/ invoking the function
+mylogger();
+// Function can reuse a piece of code, take in and return data we need.
+
+// choose descriptive names for variable and functions 
+function fruitProcessor(apples, oranges) {
+    console.log(apples, oranges);
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+    return juice;
+}
+console.log(fruitProcessor(5, 0));
+console.log(fruitProcessor(4, 5));
+// functions allow us to write more maintainable code.
+// DRY - Don't Repeat Yourself
+// console.log(), Number(), String() all are functions.
