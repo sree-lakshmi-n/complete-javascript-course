@@ -56,3 +56,27 @@ console.log(fruitProcessor(4, 5));
 // functions allow us to write more maintainable code.
 // DRY - Don't Repeat Yourself
 // console.log(), Number(), String() all are functions.
+
+// Function declarations vs Expressions
+
+// Function declaration
+
+// We can call function declarations before they are defined in code
+console.log(calcAge1(1994));
+
+function calcAge1(birthYear) {
+    return 2022 - birthYear;
+}
+console.log(calcAge1(1994));
+
+// Anonymous function
+// Function expression is assigned to a variable to form an anonymous function.
+const calcAge2 = function (birthYear) {
+    return 2022 - birthYear;
+}
+console.log(calcAge2(1991));
+
+// Function is not a type, it's a value. Hence, stored in a variable.
+
+//We can call function declarations before they are defined in code.
+// We cannot access function expressions before they're defined and initialised. Due to hoisting.
