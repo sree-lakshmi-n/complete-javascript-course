@@ -10,6 +10,10 @@
 // It forbids us to do certain things. 
 // It will create visible errors for us in certain situations. Else, JavaScript will simply fail silently without letting us know that we did a mistake.
 
+console.log(`--------------------- 
+Practice
+--------------------- 
+`);
 let hasDriversLicense = false;
 const passTest = true;
 if (passTest) {
