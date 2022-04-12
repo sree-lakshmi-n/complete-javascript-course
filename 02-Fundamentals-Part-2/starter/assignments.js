@@ -97,3 +97,18 @@ console.log(percentages);
 4. If the 'neighbours' array does not include the country‘Germany’, log to the console: 'Probably not a central European country :D'
 5. Change the name of one of your neighbouring countries. To do that, find the index of the country in the 'neighbours' array, and then use that index to change the array at that index position. For example, you can search for 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
  */
+const neighbours = ['China', 'Bhutan', 'Nepal', 'Pakistan', 'Bangladesh', 'Myanmar'];
+console.log(neighbours);
+
+neighbours.push('Utopia');
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (neighbours.includes('Germany') === false) {
+    console.log('Probably not a central European country :D');
+}
+const index = neighbours.indexOf('Myanmar');
+neighbours[index] = 'Burma';
+console.log(neighbours);
