@@ -221,4 +221,46 @@ console.log(age1, age2, age3);
 const ages = [calcAge3(years[0]), calcAge3(years[1]), calcAge3(years[2]), calcAge3(years[3]), calcAge3(years[4])];
 console.log(ages);
 
-// 
+// Basic operations on arrays
+
+// to add element to the end of an array
+friends.push('Mark');   // mutated the original array
+// returns the length of the new array
+// console.log(friends.push('Mark')); 
+console.log(friends);
+
+// to add element to beginning of array
+friends.unshift('Jerry');
+// returns the length of the new array
+//console.log(friends.unshift('Jerry'));
+console.log(friends);
+
+// to remove element from end of array
+friends.pop();
+// returns the popped out/ removed element
+//console.log(friends.pop());
+console.log(friends);
+
+// to remove element from beginning of the array
+friends.shift();
+// returns removed element
+//console.log(friends.shift());
+console.log(friends);
+
+// to know position of an element in an array
+friends.indexOf('Ann');
+console.log(friends.indexOf('Ann'));
+// If element isn't there, it returns -1
+console.log(friends.indexOf('Anne'));
+
+// to find if an element is present in the array (ES6 update)
+// uses strict equality for this check
+friends.includes('Jane');
+console.log(friends.includes('Jane'));
+console.log(friends.includes('Bob'));
+console.log(years.includes(1994));
+console.log(years.includes('1994')); // strict equality operator
+
+if (friends.includes('Jay')) {
+    console.log('You\'ve a friend called Jay.');
+}
