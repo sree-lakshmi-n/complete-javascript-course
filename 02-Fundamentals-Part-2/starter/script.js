@@ -121,3 +121,28 @@ function fruitProcessor(apples, oranges) {
 }
 console.log(fruitProcessor(2, 3));
 
+// Reviewing Functions
+const yearsUntilRetirement3 = function (birthYear, firstName) {
+    const age = calcAge2(birthYear);    // calling fns from other fns
+    const retirementAge = 60 - age;
+    if (retirementAge > 0) {
+        console.log(`${firstName} retires in ${retirementAge} years`);
+        return retirementAge;
+        console.log(`${firstName} retires in ${retirementAge} years`);
+        // non-reachable. after return statement
+    }
+    console.log(`${firstName} has already retired 🎊`);
+    return -1;
+
+}
+console.log(yearsUntilRetirement3(1891, 'John'));   // already retired. Hence, -1 will be output at console
+
+/**
+ * Function declarations - can be used before it's declared
+ * Function expressions - function value stored in a variable
+ * Arrow function - Great for one-liner functions. Has no 'this' keyword.
+ * 
+ * Three diff ways of writing functions. But, they all work in the similiar way - receive input data, transform data, and output data.
+ * 
+ * return statement - output a value from function and terminates its execution.
+ */
