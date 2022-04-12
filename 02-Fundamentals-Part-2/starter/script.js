@@ -84,3 +84,27 @@ console.log(calcAge2(1991));
 
 //We can call function declarations before they are defined in code.
 // We cannot access function expressions before they're defined and initialised. Due to hoisting.
+
+// Arrow functions
+// Very useful for one liner functions. 
+// No curly braces. We don't have to explicitly write return keyword.
+// 2022 - birthYear will be returned.
+const calcAge3 = birthYear => 2022 - birthYear;
+console.log(calcAge3(1989));
+
+// return keyword can be omitted only in one liner arrow functions
+const yearsUntilRetirement1 = birthYear => {
+    const age = 2022 - birthYear;
+    const retirementAge = 60 - age;
+    return retirementAge;
+}
+console.log(yearsUntilRetirement1(1996));
+
+const yearsUntilRetirement2 = (birthYear, firstName) => {
+    const age = 2022 - birthYear;
+    const retirementAge = 60 - age;
+    return `${firstName} retires in ${retirementAge} years`;
+}
+console.log(yearsUntilRetirement2(1998, 'Jane'));
+
+// arrow function do not get this keyword.
