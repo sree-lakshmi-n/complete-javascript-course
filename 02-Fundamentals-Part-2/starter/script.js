@@ -141,8 +141,84 @@ console.log(yearsUntilRetirement3(1891, 'John'));   // already retired. Hence, -
  * Function declarations - can be used before it's declared
  * Function expressions - function value stored in a variable
  * Arrow function - Great for one-liner functions. Has no 'this' keyword.
- * 
+ *
  * Three diff ways of writing functions. But, they all work in the similiar way - receive input data, transform data, and output data.
- * 
+ *
  * return statement - output a value from function and terminates its execution.
  */
+
+// data structure 1 - arrays
+// Arrays and Objects - very important data structures
+
+// Arrays
+
+// need for arrays
+const friend1 = 'John';
+const friend2 = 'Jane';
+const friend3 = 'Mark';
+const friend4 = 'Joe';
+const friend5 = 'Ann';
+
+const friends = ['John', 'Jane', 'Mark', 'Joe', 'Ann']; // literal syntax
+console.log(friends);
+
+const years = new Array(1991, 1992, 1993, 1994, 1995);
+console.log(years);
+
+// JS Arrays are zero-based. Index from 0 to arr.length-1
+console.log(friends[0]);
+console.log(friends[2]);
+
+// to get length of array
+console.log(friends.length);
+// to get last element of array
+console.log(friends[friends.length - 1]);//you can put expressions inside that square bracket.
+
+// changing array element
+friends[2] = 'Jay';
+console.log(friends);
+/**
+ * We declared the friends variable with const, but I was still able to change one element of the Array from Mark to Jay.
+
+Only primitive values are immutable. But an Array is not a primitive value. And so we can actually always change it so we can mutate it.
+
+And it works this way because of the way that JavaScript stores things in memory.
+ */
+/**
+But we cannot replace the entire Array.
+
+ friends = ['Bob','Ellis'];
+This would be illegal.
+We get 'assignment to constant variable' error.
+ */
+
+//An array can hold values of different types
+// It's because in each position, JS expects an expression.
+const person = ['Jane', 'Doe', calcAge3(1994), friends];
+console.log(person);
+
+calcAge3(years); // doesn't work
+//We get NaN
+// We can't subtract an  array from number (here, 2022)
+
+years + 10
+// Output: '1991,1992,1993,1994,199510'
+// Converts whole array to string and adds 10 at the end
+// Not meaningful
+
+years - 10
+// Output: NaN
+// Again, not meaningful
+
+// We cannot do operations on array
+// We can only do operations on individual elements of array, not the whole array.
+
+const age1 = calcAge3(years[0]);
+const age2 = calcAge3(years[2]);
+const age3 = calcAge3(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge3(years[0]), calcAge3(years[1]), calcAge3(years[2]), calcAge3(years[3]), calcAge3(years[4])];
+console.log(ages);
+
+// 
