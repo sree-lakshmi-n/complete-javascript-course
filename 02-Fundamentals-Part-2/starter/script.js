@@ -50,13 +50,13 @@ mylogger();
 // Function can reuse a piece of code, take in and return data we need.
 
 // choose descriptive names for variable and functions 
-function fruitProcessor(apples, oranges) {
+function fruitProcessor1(apples, oranges) {
     console.log(apples, oranges);
     const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
     return juice;
 }
-console.log(fruitProcessor(5, 0));
-console.log(fruitProcessor(4, 5));
+console.log(fruitProcessor1(5, 0));
+console.log(fruitProcessor1(4, 5));
 // functions allow us to write more maintainable code.
 // DRY - Don't Repeat Yourself
 // console.log(), Number(), String() all are functions.
@@ -108,3 +108,16 @@ const yearsUntilRetirement2 = (birthYear, firstName) => {
 console.log(yearsUntilRetirement2(1998, 'Jane'));
 
 // arrow function do not get this keyword.
+
+// Functions calling other functions
+function cutFruitPieces(fruit) {
+    return fruit * 4;
+}
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+    return juice;
+}
+console.log(fruitProcessor(2, 3));
+
