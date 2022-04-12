@@ -41,8 +41,21 @@ const percentageOfWorld2 = function (population) {
 }
 
 // population in millions
-indiaPopulationPercent = percentageOfWorld1(330);
-germanyPopulationPercent = percentageOfWorld1(84);
-canadaPopulationPercent = percentageOfWorld1(38);
+indiaPopulationPercent = percentageOfWorld2(330);
+germanyPopulationPercent = percentageOfWorld2(84);
+canadaPopulationPercent = percentageOfWorld2(38);
+
+console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
+
+/*
+LECTURE: Arrow Functions
+1. Recreate the last assignment, but this time create an arrow function called 'percentageOfWorld3'
+*/
+
+const percentageOfWorld3 = population => population * 100 / worldPopulation;
+
+indiaPopulationPercent = percentageOfWorld3(330);
+germanyPopulationPercent = percentageOfWorld3(84);
+canadaPopulationPercent = percentageOfWorld3(38);
 
 console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
