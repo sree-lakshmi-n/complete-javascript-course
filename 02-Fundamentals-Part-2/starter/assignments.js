@@ -12,10 +12,13 @@ Assignments
 function describeCountry(country, population, capitalCity) {
     return `${country} has ${population} million people and its capital city is ${capitalCity}`;
 }
+let indiaPopulation = 330;
+let germanyPopulation = 84;
+let canadaPopulation = 38;
 // population in millions
-describeCountry('India', 330, 'Delhi');
-describeCountry('Germany', 84, 'Delhi');
-describeCountry('Canada', 38, 'Ottawa');
+describeCountry('India', indiaPopulation, 'Delhi');
+describeCountry('Germany', germanyPopulation, 'Delhi');
+describeCountry('Canada', canadaPopulation, 'Ottawa');
 
 /*
 LECTURE: Function Declarations vs. Expressions
@@ -29,9 +32,9 @@ function percentageOfWorld1(population) {
     return population * 100 / worldPopulation;
 }
 // population in millions
-let indiaPopulationPercent = percentageOfWorld1(330);
-let germanyPopulationPercent = percentageOfWorld1(84);
-let canadaPopulationPercent = percentageOfWorld1(38);
+let indiaPopulationPercent = percentageOfWorld1(indiaPopulation);
+let germanyPopulationPercent = percentageOfWorld1(germanyPopulation);
+let canadaPopulationPercent = percentageOfWorld1(canadaPopulation);
 
 // Results using function declaration
 console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
@@ -41,9 +44,9 @@ const percentageOfWorld2 = function (population) {
 }
 
 // population in millions
-indiaPopulationPercent = percentageOfWorld2(330);
-germanyPopulationPercent = percentageOfWorld2(84);
-canadaPopulationPercent = percentageOfWorld2(38);
+indiaPopulationPercent = percentageOfWorld2(indiaPopulation);
+germanyPopulationPercent = percentageOfWorld2(germanyPopulation);
+canadaPopulationPercent = percentageOfWorld2(canadaPopulation);
 
 console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
 
@@ -54,8 +57,21 @@ LECTURE: Arrow Functions
 
 const percentageOfWorld3 = population => population * 100 / worldPopulation;
 
-indiaPopulationPercent = percentageOfWorld3(330);
-germanyPopulationPercent = percentageOfWorld3(84);
-canadaPopulationPercent = percentageOfWorld3(38);
+indiaPopulationPercent = percentageOfWorld3(indiaPopulation);
+germanyPopulationPercent = percentageOfWorld3(germanyPopulation);
+canadaPopulationPercent = percentageOfWorld3(canadaPopulation);
 
 console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
+
+/**
+ * LECTURE: Functions Calling Other Functions
+1. Create a function called 'describePopulation'. Use the function type you like the most. This function takes in two arguments: 'country' and 'population', and returns a string like this: 'China has 1441 million people, which is about 18.2% of the world.'
+2. To calculate the percentage, 'describePopulation' call the 'percentageOfWorld1' you created earlier
+3. Call 'describePopulation' with data for 3 countries of your choice
+ */
+const describePopulation = (country, population) => {
+    return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`;
+}
+console.log(describePopulation('India', indiaPopulation));
+console.log(describePopulation('Germany', germanyPopulation));
+console.log(describePopulation('Canada', canadaPopulation));
