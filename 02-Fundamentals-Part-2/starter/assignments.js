@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 console.log(`--------------------- 
 Assignments
 --------------------- 
@@ -10,15 +10,15 @@ Assignments
  */
 
 function describeCountry(country, population, capitalCity) {
-    return `${country} has ${population} million people and its capital city is ${capitalCity}`;
+  return `${country} has ${population} million people and its capital city is ${capitalCity}`;
 }
 let indiaPopulation = 330;
 let germanyPopulation = 84;
 let canadaPopulation = 38;
 // population in millions
-describeCountry('India', indiaPopulation, 'Delhi');
-describeCountry('Germany', germanyPopulation, 'Delhi');
-describeCountry('Canada', canadaPopulation, 'Ottawa');
+describeCountry("India", indiaPopulation, "Delhi");
+describeCountry("Germany", germanyPopulation, "Delhi");
+describeCountry("Canada", canadaPopulation, "Ottawa");
 
 /*
 LECTURE: Function Declarations vs. Expressions
@@ -29,7 +29,7 @@ LECTURE: Function Declarations vs. Expressions
 */
 const worldPopulation = 7900; // in millions
 function percentageOfWorld1(population) {
-    return population * 100 / worldPopulation;
+  return (population * 100) / worldPopulation;
 }
 // population in millions
 let indiaPopulationPercent = percentageOfWorld1(indiaPopulation);
@@ -37,31 +37,43 @@ let germanyPopulationPercent = percentageOfWorld1(germanyPopulation);
 let canadaPopulationPercent = percentageOfWorld1(canadaPopulation);
 
 // Results using function declaration
-console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
+console.log(
+  indiaPopulationPercent,
+  germanyPopulationPercent,
+  canadaPopulationPercent
+);
 
 const percentageOfWorld2 = function (population) {
-    return population * 100 / worldPopulation;
-}
+  return (population * 100) / worldPopulation;
+};
 
 // population in millions
 indiaPopulationPercent = percentageOfWorld2(indiaPopulation);
 germanyPopulationPercent = percentageOfWorld2(germanyPopulation);
 canadaPopulationPercent = percentageOfWorld2(canadaPopulation);
 
-console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
+console.log(
+  indiaPopulationPercent,
+  germanyPopulationPercent,
+  canadaPopulationPercent
+);
 
 /*
 LECTURE: Arrow Functions
 1. Recreate the last assignment, but this time create an arrow function called 'percentageOfWorld3'
 */
 
-const percentageOfWorld3 = population => population * 100 / worldPopulation;
+const percentageOfWorld3 = (population) => (population * 100) / worldPopulation;
 
 indiaPopulationPercent = percentageOfWorld3(indiaPopulation);
 germanyPopulationPercent = percentageOfWorld3(germanyPopulation);
 canadaPopulationPercent = percentageOfWorld3(canadaPopulation);
 
-console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPercent);
+console.log(
+  indiaPopulationPercent,
+  germanyPopulationPercent,
+  canadaPopulationPercent
+);
 
 /**
  * LECTURE: Functions Calling Other Functions
@@ -70,11 +82,13 @@ console.log(indiaPopulationPercent, germanyPopulationPercent, canadaPopulationPe
 3. Call 'describePopulation' with data for 3 countries of your choice
  */
 const describePopulation = (country, population) => {
-    return `${country} has ${population} million people, which is about ${percentageOfWorld1(population)}% of the world.`;
-}
-console.log(describePopulation('India', indiaPopulation));
-console.log(describePopulation('Germany', germanyPopulation));
-console.log(describePopulation('Canada', canadaPopulation));
+  return `${country} has ${population} million people, which is about ${percentageOfWorld1(
+    population
+  )}% of the world.`;
+};
+console.log(describePopulation("India", indiaPopulation));
+console.log(describePopulation("Germany", germanyPopulation));
+console.log(describePopulation("Canada", canadaPopulation));
 
 /**
  * LECTURE: Introduction to Arrays
@@ -83,10 +97,20 @@ console.log(describePopulation('Canada', canadaPopulation));
 3. Create an array called 'percentages' containing the percentages of the
 world population for these 4 population values. Use the function 'percentageOfWorld1' that you created earlier to compute the 4 percentage values
  */
-let japanPopulation = 125;    // in millions
-const populations = [indiaPopulation, germanyPopulation, canadaPopulation, japanPopulation];
+let japanPopulation = 125; // in millions
+const populations = [
+  indiaPopulation,
+  germanyPopulation,
+  canadaPopulation,
+  japanPopulation,
+];
 console.log(populations.length === 4);
-const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3]),
+];
 console.log(percentages);
 
 /**
@@ -97,18 +121,70 @@ console.log(percentages);
 4. If the 'neighbours' array does not include the country‘Germany’, log to the console: 'Probably not a central European country :D'
 5. Change the name of one of your neighbouring countries. To do that, find the index of the country in the 'neighbours' array, and then use that index to change the array at that index position. For example, you can search for 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
  */
-const neighbours = ['China', 'Bhutan', 'Nepal', 'Pakistan', 'Bangladesh', 'Myanmar'];
+const neighbours = [
+  "China",
+  "Bhutan",
+  "Nepal",
+  "Pakistan",
+  "Bangladesh",
+  "Myanmar",
+  "Sri Lanka",
+  "Afganistan",
+  "Maldives",
+];
 console.log(neighbours);
 
-neighbours.push('Utopia');
+neighbours.push("Utopia");
 console.log(neighbours);
 
 neighbours.pop();
 console.log(neighbours);
 
-if (neighbours.includes('Germany') === false) {
-    console.log('Probably not a central European country :D');
+if (neighbours.includes("Germany") === false) {
+  console.log("Probably not a central European country :D");
 }
-const index = neighbours.indexOf('Myanmar');
-neighbours[index] = 'Burma';
+const index = neighbours.indexOf("Myanmar");
+neighbours[index] = "Burma";
 console.log(neighbours);
+
+/**
+ * LECTURE: Introduction to Objects
+    1. Create an object called 'myCountry' for a country of your choice,containing properties 'country', 'capital', 'language', 'population' and 'neighbours' (an array like we used in previous assignments)
+ */
+const myCountry = {
+  country: "India",
+  capital: "Delhi",
+  language: "Hindi, English",
+  population: 330,
+  neighbours: 9,
+  describe: function () {
+    console.log(
+      `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours} neighbouring countries and a capital called ${this.capital}.`
+    );
+    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours} neighbouring countries and a capital called ${this.capital}.`;
+  },
+  checkIsland: function () {
+    this.isIsland = this.neighbours <= 0 ? true : false;
+    return this.isIsland;
+  },
+};
+console.log(myCountry);
+
+/*
+LECTURE: Dot vs. Bracket Notation
+1. Using the object from the previous assignment,log a string like this to the console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries and a capital called Helsinki.'
+2. Increase the country's population by two million using dot notation, and then decrease it by two million using brackets notation.
+*/
+console.log(
+  `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours} neighbouring countries and a capital called ${myCountry.capital}.`
+);
+
+/**
+ * LECTURE: Object Methods
+1. Add a method called 'describe' to the 'myCountry' object. This method will log a string to the console, similar to the string logged in the previous assignment, but this time using the 'this' keyword.
+2. Call the 'describe' method
+3. Add a method called 'checkIsland' to the 'myCountry' object. This
+method will set a new property on the object, called 'isIsland'. 'isIsland' will be true if there are no neighbouring countries, and false if there are. Use the ternary operator to set the property.
+ */
+myCountry.describe();
+console.log(myCountry.checkIsland());
