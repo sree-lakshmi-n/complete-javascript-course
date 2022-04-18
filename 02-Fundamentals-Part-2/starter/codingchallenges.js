@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 console.log(`--------------------- 
 Coding Challenges
 --------------------- 
@@ -24,18 +24,16 @@ Apply this to the team's average scores
  */
 const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 const checkWinner = (avgDolphins, avgKoalas) => {
-    let result;
-    if (avgDolphins >= 2 * avgKoalas) {
-        result = `Dolphins win (${avgDolphins} vs. ${avgKoalas})`;
-    }
-    else if (avgKoalas >= 2 * avgDolphins) {
-        result = `Koalas win (${avgKoalas} vs. ${avgDolphins})`
-    }
-    else {
-        result = `No one wins!`;
-    }
-    return result;
-}
+  let result;
+  if (avgDolphins >= 2 * avgKoalas) {
+    result = `Dolphins win (${avgDolphins} vs. ${avgKoalas})`;
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    result = `Koalas win (${avgKoalas} vs. ${avgDolphins})`;
+  } else {
+    result = `No one wins!`;
+  }
+  return result;
+};
 // data 1
 let dolphScore1 = 44;
 let dolphScore2 = 23;
@@ -79,9 +77,11 @@ Hint: Remember that an array needs a value in each position, and that value can 
 
  */
 
-const calcTip = billValue => {
-    return billValue >= 50 && billValue <= 300 ? 0.15 * billValue : 0.2 * billValue;
-}
+const calcTip = (billValue) => {
+  return billValue >= 50 && billValue <= 300
+    ? 0.15 * billValue
+    : 0.2 * billValue;
+};
 console.log(calcTip(100));
 const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
@@ -89,3 +89,47 @@ const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(bills);
 console.log(tips);
 console.log(total);
+
+/**
+ * 
+ * Coding Challenge #3
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height) (mass in kg and height in meter)
+Your tasks:
+1. For each of them, create an object with properties for their full name, mass,and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+GOOD LUCK 😀
+ */
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+if (john.calcBMI() > mark.calcBMI()) {
+  console.log(
+    `${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${
+      mark.fullName
+    }'s (${mark["calcBMI"]()})!`
+  );
+} else {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${
+      john.fullName
+    }'s (${john["calcBMI"]()})!`
+  );
+}
