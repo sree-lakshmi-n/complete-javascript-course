@@ -293,9 +293,31 @@ const jonasArray = [
 const jonas = {
   firstName: "Jonas",
   lastName: "Schmedtmann",
-  age: calcAge3(1991),
+  birthYear: 1991,
+  age: calcAge3(1991), // fn expressions work, not fn declarations
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
+  calcAge: function (birthYear) {
+    // fn expressions work, not fn declarations
+    return 2022 - birthYear;
+  },
+  calcAgeAnotherMethod: function () {
+    // this keyword can be used to refer to variables inside objects
+    return 2022 - this.birthYear;
+  },
+  // We can use this keyword to create new properties and assign value to it.
+  calcAgeYetAnotherMethod: function () {
+    this.myage = 2022 - this.birthYear;
+    return this.myage;
+  },
+  hasDriversLicense: function () {
+    return this.age >= 18 ? "a" : "no";
+  },
+  getSummary: function () {
+    return `${
+      this.firstName
+    } is a ${this.calcAgeYetAnotherMethod()}-year old teacher and he has ${this.hasDriversLicense()} driver's license.`;
+  },
 };
 console.log(jonas);
 // the order of values doesn't matter when we try to retrieve value
@@ -342,3 +364,21 @@ console.log(
 // dot notations (member access) and brackets notations (computed member access) are executed left to right.
 
 // Object Methods
+
+console.log(jonas.calcAge(1989));
+console.log(jonas["calcAge"](1989));
+
+console.log(jonas.calcAgeAnotherMethod());
+console.log(jonas["calcAgeAnotherMethod"]());
+
+console.log(jonas.calcAgeYetAnotherMethod());
+console.log(jonas["calcAgeYetAnotherMethod"]());
+
+console.log(jonas.myage);
+console.log(jonas["myage"]);
+
+// Challenge
+//Jonas is a 46-year old teacher and he has a/no driver's license.
+console.log(jonas.getSummary());
+
+// Arrays are also objects, they have built-in methods.
