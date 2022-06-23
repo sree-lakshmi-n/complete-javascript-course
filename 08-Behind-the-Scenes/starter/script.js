@@ -54,3 +54,36 @@ console.log(me);
 var me = 'sophie';
 let age = 30;
 const job = 'teacher';
+
+// hoisting with functions
+console.log(addDecl(2, 3));
+// console.log(addExp(2, 3));
+// console.log(addArr(2, 3));
+// console.log(addExpVar(2, 3));
+// console.log(addArrVar(2, 3));
+// undefined is the initially assigned value. It's like calling undefined(2,3) here. Hence, it throws error.
+
+console.log(addArrVar);
+
+function addDecl(a, b) {
+  return a + b;
+}
+const addExp = function (a, b) {
+  return a + b;
+};
+// ReferenceError: Cannot access 'addExp' before initialization
+
+const addArr = (a, b) => {
+  return a + b;
+};
+// ReferenceError: Cannot access 'addArr' before initialization
+
+var addExpVar = function (a, b) {
+  return a + b;
+};
+//  TypeError: addExpVar is not a function
+
+var addArrVar = (a, b) => {
+  return a + b;
+};
+// TypeError: addArrVar is not a function
