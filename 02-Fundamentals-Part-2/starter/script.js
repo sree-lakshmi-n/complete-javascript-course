@@ -382,3 +382,49 @@ console.log(jonas["myage"]);
 console.log(jonas.getSummary());
 
 // Arrays are also objects, they have built-in methods.
+
+// Iteration
+// The for loop
+// for loop keeps running while condition is true
+for (let i = 1; i <= 10; i++) {
+  console.log(`Lifting weights repetition ${i} 🏋️‍♀️`);
+}
+
+const types = [];
+
+for (let i = 0; i < jonasArray.length; i++) {
+  console.log(jonasArray[i], typeof jonasArray[i]);
+  types[i] = typeof jonasArray[i];
+}
+console.log(types);
+
+const birthYears = [1991, 2007, 1969, 2020];
+const calculatedAges = [];
+for (let i = 0; i < birthYears.length; i++) {
+  calculatedAges.push(2022 - birthYears[i]);
+}
+console.log(calculatedAges);
+
+// continue and break
+for (let i = 0; i < types.length; i++) {
+  if (types[i] === "number") {
+    break;
+  }
+  if (types[i] !== "string") {
+    continue;
+  }
+  console.log(jonasArray[i], types[i]);
+}
+
+// looping backwards
+for (let i = jonasArray.length - 1; i >= 0; i--) {
+  console.log(jonasArray[i]);
+}
+
+// loops in loops
+for (let exercise = 1; exercise <= 3; exercise++) {
+  console.log(`Starting exercise ${exercise}......`);
+  for (let rep = 1; rep <= 5; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weight repetition ${rep}`);
+  }
+}
