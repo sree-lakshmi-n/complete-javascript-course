@@ -87,3 +87,10 @@ var addArrVar = (a, b) => {
   return a + b;
 };
 // TypeError: addArrVar is not a function
+
+// dangers of using var
+if (!noOfItems) deleteShoppingCart();
+var noOfItems = 10;
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
