@@ -43,3 +43,14 @@ const firstName = 'Jo';
 calcAge(1991);
 // console.log(age);
 // printAge();
+
+// Hoisting and Temporal Dead Zone(TDZ) in practice
+
+// hoisting with variables
+console.log(me);
+// console.log(age);
+// console.log(job);
+
+var me = 'sophie';
+let age = 30;
+const job = 'teacher';
