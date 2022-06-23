@@ -8,8 +8,13 @@ function calcAge(birthYear) {
     // Block scope
     if (birthYear >= 1981 && birthYear <= 1996) {
       const str = `Oh! You're a millenial, ${firstName}`;
+      var millenial = true;
       console.log(str);
+      console.log(millenial);
     }
+    // var is function scoped
+    console.log(millenial);
+    // let & const are block scoped
     // console.log(str);
   }
   printAge();
