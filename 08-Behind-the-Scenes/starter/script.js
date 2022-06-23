@@ -11,11 +11,19 @@ function calcAge(birthYear) {
       var millenial = true;
       console.log(str);
       console.log(millenial);
+
+      function add(a, b) {
+        return a + b;
+      }
+      add(2, 3);
     }
     // var is function scoped
     console.log(millenial);
     // let & const are block scoped
     // console.log(str);
+
+    // functions are block scoped in strict mode
+    // add(2, 3);
   }
   printAge();
   return age;
