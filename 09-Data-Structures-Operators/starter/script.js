@@ -54,6 +54,55 @@ const restaurant = {
 };
 
 //////////////////////////////////////////////////////////
+// Short Circuiting (&& and ||)
+// OR Operator (||)
+console.log(3 || 'Jonas'); // 3
+// Logical Operators can
+// - Use ANY data type
+// - Return ANY data type
+// - Do short-circuiting/ short circuit evaluation
+//OR - (If the first value is a truthy value, it would immediately return that value)
+console.log('' || 'Jonas'); // 'Jonas'
+console.log(true || 0); // true
+console.log(0 || undefined); // undefined
+console.log(undefined || null); // null
+// Last operand will be returned if all prev ones are falsy values
+console.log(0 || undefined || null || 'Hello' || 23 || ''); // Hello (the first truthy value is returned)
+
+const guests = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests);
+
+// Doing above with short-circuiting
+const guests1 = restaurant.numGuests || 10;
+console.log(guests1);
+
+restaurant.numGuests = 23;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// This won't work with 0 as 0 is considered falsy value
+restaurant.numGuests = 0;
+const guests3 = restaurant.numGuests || 10; //10
+console.log(guests3);
+
+// AND Operator (&&)
+console.log(0 && 'Jonas');
+// And operator short circuits on encountering the first falsy value
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('Mushrooms', 'spinach');
+}
+restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'spinach');
+
+// OR
+// Will return first truthy value or last value is all operands are falsy
+// Used to set default values
+
+// AND
+// Will return first falsy value or last value is all operands are truthy
+// Used to execute code in second operand if first operand is truthy
 
 //////////////////////////////////////////////////////////
 
