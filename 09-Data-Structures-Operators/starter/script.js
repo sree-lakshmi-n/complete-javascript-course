@@ -48,35 +48,21 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}.`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
 
 //////////////////////////////////////////////////////////
-// Rest pattern
-// Spread -> Used on RHS of =
-const arr = [1, 2, ...[3, 4, 5]];
-// Rest -> Used on LHS of =
-const [a, b, ...others] = arr;
-// Rest pattern collects the elements that are unused in the destructuring assignment. It does not include skipped elements.
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
-// const [p, , r, ...o,b] = [
-//   ...restaurant.mainMenu,
-//   ...restaurant.starterMenu,
-// ];
-// throws 'Uncaught SyntaxError: Rest element must be last element' error
-// => there can be only one rest element in a destructuring assignment
 
 //////////////////////////////////////////////////////////
+
+// // Array destructuring
 
 // const arr = [1, 2, 3];
 // const a = arr[0];
 // const b = arr[1];
 // const c = arr[2];
-
-// // Array destructuring
 
 // const [x, y, z] = arr;
 // console.log(a, b, c, x, y, z);
@@ -229,3 +215,42 @@ console.log(pizza, risotto, otherFood);
 // // Address is not copied. Hence, the changes aren't reflected in org object
 // console.log(restaurant.name);
 // console.log(copyRestaurant.name);
+
+//////////////////////////////////////////////////////////
+// // Rest pattern
+// // Spread -> Used on RHS of =
+// const arr = [1, 2, ...[3, 4, 5]];
+// // Rest -> Used on LHS of =
+// const [a, b, ...others] = arr;
+// // Rest pattern collects the elements that are unused in the destructuring assignment. It does not include skipped elements.
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
+// // const [p, , r, ...o,b] = [
+// //   ...restaurant.mainMenu,
+// //   ...restaurant.starterMenu,
+// // ];
+// // throws 'Uncaught SyntaxError: Rest element must be last element' error
+// // => there can be only one rest element in a destructuring assignment
+
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+
+// console.log(sat, weekdays);
+
+// // Functions - condenses multiple arguments to an array
+// const add = (...numbers) => {
+//   return numbers.reduce((a, b) => a + b, 0);
+// };
+// console.log(add(1, 2, 3, 4));
+// console.log(add(9, 8, 7, 6, 5, 4, 3, 2, 1));
+// console.log(add(2, 1));
+
+// // Spread is the opposite of rest
+// const x = [23, 5, 7];
+// console.log(add(...x));
+
+// restaurant.orderPizza('Mushrooms', 'Onion', 'Olives', 'Spinach');
+// restaurant.orderPizza('Mushrooms');
