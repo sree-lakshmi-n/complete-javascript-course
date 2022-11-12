@@ -53,8 +53,50 @@ const restaurant = {
   },
 };
 
-//
+////////////////////////////////////////////////////////////
 
+// Logical Assignment Operators
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR Assignment Operator
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1.numGuests, rest2.numGuests);
+// Works beautifully except when 0 is encountered.
+rest1.numGuests = 0;
+
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1.numGuests, rest2.numGuests);
+
+// Nullish Assignment Operator
+// Solves 0 issue
+rest1.numGuests = 0;
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1.numGuests, rest2.numGuests);
+
+// AND Assignment Operator
+// Making restaurant owner's name anonymous
+rest1.owner = rest1.owner && '<ANONYMOUS>'; // undefined
+rest2.owner = rest2.owner && '<ANONYMOUS>'; // <ANONYMOUS>
+console.log(rest1.owner, rest2.owner);
+
+rest1.owner &&= '<ANONYMOUS>'; // undefined
+rest2.owner &&= '<ANONYMOUS>'; // <ANONYMOUS>
+console.log(rest1.owner, rest2.owner);
 //////////////////////////////////////////////////////////
 
 // // Array destructuring
