@@ -53,10 +53,6 @@ const restaurant = {
   },
 };
 
-//
-
-//
-
 //////////////////////////////////////////////////////////
 
 // // Array destructuring
@@ -552,3 +548,32 @@ GOOD LUCK 😀
 //   },
 // ];
 // console.log(users[0]?.name ?? 'users array empty');
+
+//////////////////////////////////////////////////////////
+// Looping Objects
+
+//
+// Keys
+// for (const day of Object.keys(restaurant.openingHours)) {
+//   console.log(day);
+// }
+
+// const properties = Object.keys(restaurant.openingHours);
+// console.log(properties);
+
+// console.log(`We are open on ${properties.length} days`);
+
+// // Values
+// const values = Object.values(restaurant.openingHours);
+// console.log(values);
+
+// // Entries
+// const entries = Object.entries(restaurant.openingHours);
+// console.log(entries);
+
+// for (const item of Object.entries(restaurant.openingHours)) {
+//   console.log(item);
+// }
+// for (const [day, { open, close }] of Object.entries(restaurant.openingHours)) {
+//   console.log(`On ${day}, we open at ${open} and close at ${close}`);
+// }
