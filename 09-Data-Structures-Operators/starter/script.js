@@ -56,6 +56,41 @@ const restaurant = {
 //
 
 //////////////////////////////////////////////////////////
+// Enhanced Object Literals
+// 01 - When key name and variable name are same
+const daySubjects = {
+  mon: ['phy', 'math'],
+  tue: ['chem', 'bio'],
+  wed: ['science', 'social'],
+  thu: ['comp', 'PT'],
+  fri: ['eng', 'math'],
+};
+const school = {
+  name: 'Dynamic School',
+  daySubjects, // instead of daySubjects: daySubjects
+};
+
+// 02 - Functions assignment
+const faculty = {
+  school: 'Dynamic School',
+  daySubjects,
+  // new way of defining fns inside object
+  facultyName(name) {
+    console.log(name);
+  },
+};
+
+// 03 - Computing property names instead of writing manually
+const hobbies = ['reading', 'singing', 'dancing', 'drawing'];
+const studentCount = {
+  [hobbies[0]]: 9,
+  [hobbies[1]]: 10,
+  [hobbies[1 + 1]]: 2,
+  [`hobby - ${1 + 2}`]: 4, // any expression can be given inside []
+};
+console.log(studentCount);
+
+//////////////////////////////////////////////////////////
 
 // // Array destructuring
 
