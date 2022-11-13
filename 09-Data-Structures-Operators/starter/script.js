@@ -55,40 +55,7 @@ const restaurant = {
 
 //
 
-//////////////////////////////////////////////////////////
-// Enhanced Object Literals
-// 01 - When key name and variable name are same
-const daySubjects = {
-  mon: ['phy', 'math'],
-  tue: ['chem', 'bio'],
-  wed: ['science', 'social'],
-  thu: ['comp', 'PT'],
-  fri: ['eng', 'math'],
-};
-const school = {
-  name: 'Dynamic School',
-  daySubjects, // instead of daySubjects: daySubjects
-};
-
-// 02 - Functions assignment
-const faculty = {
-  school: 'Dynamic School',
-  daySubjects,
-  // new way of defining fns inside object
-  facultyName(name) {
-    console.log(name);
-  },
-};
-
-// 03 - Computing property names instead of writing manually
-const hobbies = ['reading', 'singing', 'dancing', 'drawing'];
-const studentCount = {
-  [hobbies[0]]: 9,
-  [hobbies[1]]: 10,
-  [hobbies[1 + 1]]: 2,
-  [`hobby - ${1 + 2}`]: 4, // any expression can be given inside []
-};
-console.log(studentCount);
+//
 
 //////////////////////////////////////////////////////////
 
@@ -504,3 +471,84 @@ GOOD LUCK 😀
 // for (const [index, item] of menu.entries()) {
 //   console.log(`${index + 1}: ${item}`);
 // }
+//////////////////////////////////////////////////////////
+// // Enhanced Object Literals
+// // 01 - When key name and variable name are same
+// const daySubjects = {
+//   mon: ['phy', 'math'],
+//   tue: ['chem', 'bio'],
+//   wed: ['science', 'social'],
+//   thu: ['comp', 'PT'],
+//   fri: ['eng', 'math'],
+// };
+// const school = {
+//   name: 'Dynamic School',
+//   daySubjects, // instead of daySubjects: daySubjects
+// };
+
+// // 02 - Functions assignment
+// const faculty = {
+//   school: 'Dynamic School',
+//   daySubjects,
+//   // new way of defining fns inside object
+//   facultyName(name) {
+//     console.log(name);
+//   },
+// };
+
+// // 03 - Computing property names instead of writing manually
+// const hobbies = ['reading', 'singing', 'dancing', 'drawing'];
+// const studentCount = {
+//   [hobbies[0]]: 9,
+//   [hobbies[1]]: 10,
+//   [hobbies[1 + 1]]: 2,
+//   [`hobby - ${1 + 2}`]: 4, // any expression can be given inside []
+// };
+// console.log(studentCount);
+
+//////////////////////////////////////////////////////////
+// // Optional Chaining
+// // let's pretend we don't know on which all days the restaurant is open and we try fetching openingHours for mon
+// // console.log(restaurant.openingHours.mon); // undefined
+// // console.log(restaurant.openingHours.mon.open);
+// // we're trying to fetch open value of undefined. Throws error, 'Uncaught TypeError: Cannot read properties of undefined (reading 'open')'
+
+// // to avoid this error, we need to check if it exists first
+// restaurant.openingHours.mon && console.log(restaurant.openingHours.mon);
+// // what if we don't even know if openingHours exist. We would've to place a check for that as well
+// if (restaurant.openingHours && restaurant.openingHours.mon) {
+//   console.log(restaurant.openingHours.mon);
+// }
+// // This can become very compliated in case of real world objects with deeply nested optional properties
+
+// // with optional chaining - if a certain property does not exist, it'll return undefined immediately
+// console.log(restaurant.openingHours?.mon?.open);
+
+// // Example
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   // console.log(day);
+//   // const open = restaurant.openingHours[day]?.open;
+//   // console.log(`On day ${day}, we open at ${open}`);
+//   //Outputs 'On day mon, we open at undefined' for days which are not present in openingHours
+//   // To make the output more meaningful, we can use OR
+//   // const open = restaurant.openingHours[day]?.open || 'closed';
+//   // console.log(`On day ${day}, we open at ${open}`);
+//   // It shows 'On day sat, we open at closed', even though sat has a valid open key (0 issue)
+//   // solving it with nullish coalescing operator
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On day ${day}, we open at ${open}`);
+// }
+
+// //Methods
+// console.log(restaurant.order?.(0, 1) ?? `method doesn't exist`);
+// console.log(restaurant.orderRisotto?.(0, 1) ?? `method doesn't exist`);
+
+// // Array
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'abc@def.com',
+//   },
+// ];
+// console.log(users[0]?.name ?? 'users array empty');
