@@ -54,6 +54,45 @@ const restaurant = {
 };
 
 //////////////////////////////////////////////////////////
+// Sets
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+const nameSet = new Set('Jonas');
+const emptySet = new Set();
+console.log(ordersSet, nameSet, emptySet, ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+console.log(ordersSet);
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+// to clear all elements of a set
+// ordersSet.clear();
+// console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+// to remove duplicates of an array
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = new Set(staff);
+console.log(staff, staffUnique);
+// To convert set to array (set is an iterable, hence we can use spread operator for this)
+const staffUniqueArr = [...staffUnique];
+console.log(staffUniqueArr);
+
+// counting unique chars in a string
+const name = 'Jonas Schmedtmann';
+console.log(new Set(name).size);
+//////////////////////////////////////////////////////////
 
 // // Array destructuring
 
@@ -602,68 +641,68 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1.
-for (const [goalNum, player] of Object.entries(game.scored)) {
-  console.log(`Goal ${+goalNum + 1}: ${player}`);
-}
+// // 1.
+// for (const [goalNum, player] of Object.entries(game.scored)) {
+//   console.log(`Goal ${+goalNum + 1}: ${player}`);
+// }
 
-//2.
-let sum = 0;
-for (const odd of Object.values(game.odds)) {
-  sum += odd;
-}
-let avg = sum / Object.values(game.odds).length;
-console.log(avg.toFixed(2));
+// //2.
+// let sum = 0;
+// for (const odd of Object.values(game.odds)) {
+//   sum += odd;
+// }
+// let avg = sum / Object.values(game.odds).length;
+// console.log(avg.toFixed(2));
 
-//3.
-for (const [team, odd] of Object.entries(game.odds)) {
-  console.log(`Odd of victory ${game[team] ?? 'draw'}: ${odd}`);
-}
+// //3.
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   console.log(`Odd of victory ${game[team] ?? 'draw'}: ${odd}`);
+// }
 
-// BONUS
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);
+// // BONUS
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
