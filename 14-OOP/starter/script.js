@@ -50,3 +50,28 @@ console.log(jonas.__proto__.__proto__.__proto__); // null
 
 console.log(Person.prototype.constructor);
 console.log(Person.prototype.constructor);
+
+// Prototypal inheritance on built-in objects
+const arr = [1, 2, 3, 4, 1, 1, 1, 1, 3, 3, 3, 34, 4, 4, 4];
+console.log(arr.__proto__); // Array.prototype
+console.log(arr.__proto__ === Array.prototype);
+console.log(arr.__proto__.__proto__); // Object.prototype
+console.log(arr.__proto__.__proto__.__proto__); // null
+
+// extending the prototype of a built-in object
+Array.prototype.unique = function () {
+  return [...new Set(arr)];
+};
+console.log(arr.unique());
+/**
+ * Extending the prototype of a built-in object is generally not a good idea:-
+ * 1. The next version of JavaScript might add a method with the same name but it might work in a different way. When your code will then use that new method, then that will probably break your code.
+ * 2. When you work on a team of developers, and  if multiple developers implement the same method with a different name, then that's just going to create many bugs.
+ */
+
+// DOM elements
+const h1 = document.querySelector('h1');
+console.dir(h1);
+
+// Functions
+console.dir(x => x + 1);
