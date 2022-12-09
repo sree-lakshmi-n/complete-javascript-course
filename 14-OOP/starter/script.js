@@ -192,3 +192,26 @@ Person.hey = function () {
 Person.hey();
 // In classes
 PersonCl.hey();
+
+// Object.create
+const PersonProto = {
+  calcAge() {
+    return 2037 - this.birthYear;
+  },
+  init(name, birthYear) {
+    // not constructor. can have any name
+    this.name = name;
+    this.birthYear = birthYear;
+  },
+};
+const steven = Object.create(PersonProto);
+console.log(steven);
+console.log(steven.__proto__);
+console.log(steven.__proto__ === PersonProto);
+steven.name = 'Steven';
+steven.birthYear = 2000;
+console.log(steven.calcAge());
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+console.log(sarah.calcAge());
