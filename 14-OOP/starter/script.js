@@ -113,3 +113,37 @@ console.log(mercedes.accelerate());
 console.log(mercedes.brake());
 console.log(mercedes.accelerate());
 console.log(mercedes.brake());
+
+// ES6 Classes
+// Class expressions
+// const PersonCl = class {
+
+// }
+// Class declarations
+class PersonCl {
+  constructor(name, birthYear) {
+    this.name = name;
+    this.birthYear = birthYear;
+  }
+  // Methods outside constructor will be added to prototype
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+  greet() {
+    console.log(`Hey, ${this.name}!`);
+  }
+}
+const jessica = new PersonCl('Jessica', 1996);
+jessica.calcAge();
+console.log(jessica);
+console.log(jessica.__proto__);
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey, ${this.name}!`);
+// };
+jessica.greet();
+
+// 1. Classes are NOT hoisted
+// 2. Classes are first-class citizens. We can pass them into functions and return them from functions.
+// 3. Classes are executed in strict mode.
