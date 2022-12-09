@@ -54,44 +54,62 @@ const restaurant = {
 };
 
 //////////////////////////////////////////////////////////
-// Sets
-const ordersSet = new Set([
-  'Pasta',
-  'Pizza',
-  'Pizza',
-  'Risotto',
-  'Pasta',
-  'Pizza',
+// Maps
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+// Set method returns the updated map
+console.log(rest.set(2, 'Lisbon, Portugal'));
+// => We can chain the set method
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are Open :D')
+  .set(false, 'We are Close :(');
+
+// Data types are important while fetching values in maps
+console.log(rest.get('name'));
+console.log(rest.get('1')); // undefined
+console.log(rest.get(1));
+console.log(rest.get(2));
+console.log(rest.get(true));
+console.log(rest.get('true')); // undefined
+
+const time = 21;
+console.log(rest.get(rest.get('open') > 10 && rest.get('close') < 24));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+// rest.clear();  // clears all from map
+// console.log(rest);
+
+// Assigning arrays as keys
+rest.set([1, 2], 'Test');
+console.log(rest.get([1, 2])); // undefined
+// this won't work as arrays are not primitive values and the [1,2] in get() and set() may have diff m/y locations
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr)); // 'Test'
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.get(document.querySelector('h1')));
+
+console.log(rest.size);
+
+const questions = new Map([
+  ['questions', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try again :('],
 ]);
-const nameSet = new Set('Jonas');
-const emptySet = new Set();
-console.log(ordersSet, nameSet, emptySet, ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
-ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');
-console.log(ordersSet);
-ordersSet.delete('Risotto');
-console.log(ordersSet);
-// to clear all elements of a set
-// ordersSet.clear();
-// console.log(ordersSet);
 
-for (const order of ordersSet) {
-  console.log(order);
-}
-
-// to remove duplicates of an array
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const staffUnique = new Set(staff);
-console.log(staff, staffUnique);
-// To convert set to array (set is an iterable, hence we can use spread operator for this)
-const staffUniqueArr = [...staffUnique];
-console.log(staffUniqueArr);
-
-// counting unique chars in a string
-const name = 'Jonas Schmedtmann';
-console.log(new Set(name).size);
 //////////////////////////////////////////////////////////
 
 // // Array destructuring
@@ -706,3 +724,43 @@ GOOD LUCK 😀
 //   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 // }
 // console.log(scorers);
+
+// //////////////////////////////////////////////////////////
+// // Sets
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+// const nameSet = new Set('Jonas');
+// const emptySet = new Set();
+// console.log(ordersSet, nameSet, emptySet, ordersSet.size);
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Bread'));
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+// console.log(ordersSet);
+// ordersSet.delete('Risotto');
+// console.log(ordersSet);
+// // to clear all elements of a set
+// // ordersSet.clear();
+// // console.log(ordersSet);
+
+// for (const order of ordersSet) {
+//   console.log(order);
+// }
+
+// // to remove duplicates of an array
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = new Set(staff);
+// console.log(staff, staffUnique);
+// // To convert set to array (set is an iterable, hence we can use spread operator for this)
+// const staffUniqueArr = [...staffUnique];
+// console.log(staffUniqueArr);
+
+// // counting unique chars in a string
+// const name = 'Jonas Schmedtmann';
+// console.log(new Set(name).size);
