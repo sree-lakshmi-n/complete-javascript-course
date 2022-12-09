@@ -125,13 +125,14 @@ class PersonCl {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
-  // Methods outside constructor will be added to prototype
+  // Methods outside constructor will be added to prototype (Instance methods)
   calcAge() {
     console.log(2037 - this.birthYear);
   }
   greet() {
     console.log(`Hey, ${this.fullName}!`);
   }
+  // Setters and Getters
   get age() {
     return 2037 - this.birthYear;
   }
@@ -142,6 +143,11 @@ class PersonCl {
   }
   get fullName() {
     return this._fullName;
+  }
+  // Static methods
+  static hey() {
+    console.log('Hey!');
+    console.log(this);
   }
 }
 const jessica = new PersonCl('Jessica David', 1996);
@@ -175,4 +181,14 @@ console.log(account.latest);
 
 console.log(jessica.age);
 
-const walter = new PersonCl('Walter', 1993);
+const walter = new PersonCl('Walter Watson', 1993);
+
+// Static Methods
+// In constructor functions
+Person.hey = function () {
+  console.log('Hey!');
+  console.log(this);
+};
+Person.hey();
+// In classes
+PersonCl.hey();
