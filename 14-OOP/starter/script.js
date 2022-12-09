@@ -41,3 +41,12 @@ Person.prototype.species = 'Homo Sapiens';
 console.log(jonas.hasOwnProperty('firstName')); // true
 console.log(jonas.hasOwnProperty('species')); // false
 //species is inside __proto__, not in jonas object itself.
+
+// Prototype Chain
+
+console.log(jonas.__proto__); // Person.prototype
+console.log(jonas.__proto__.__proto__); // Object.prototype
+console.log(jonas.__proto__.__proto__.__proto__); // null
+
+console.log(Person.prototype.constructor);
+console.log(Person.prototype.constructor);
