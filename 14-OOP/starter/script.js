@@ -334,3 +334,27 @@ tesla.accelerate();
 tesla.brake();
 tesla.brake();
 tesla.accelerate();
+
+// Inheritance using ES6 classes
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    super(fullName, birthYear);
+    this.course = course;
+  }
+  introduce() {
+    console.log(
+      `My name is ${this.fullName} and I am studying ${this.course}.`
+    );
+  }
+  calcAge() {
+    console.log(
+      `I am ${2037 - this.birthYear} years old, but I feel like a ${
+        2037 - this.birthYear + 10
+      } year old.`
+    );
+  }
+}
+const ray = new StudentCl('Ray Ron', 2020, 'Maths');
+console.log(ray);
+ray.introduce();
+ray.calcAge();
