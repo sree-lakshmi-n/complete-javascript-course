@@ -260,3 +260,13 @@ console.log(ford.accelerate());
 console.log(ford.speedUS);
 console.log(ford.brake());
 console.log(ford.speedUS);
+
+// Inheritance
+const Student = function (firstName, birthYear, course) {
+  Person(firstName, birthYear);
+  this.course = course;
+};
+Student.prototype.intro = function () {
+  console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
+};
+const mike = new Student('Mike', 2020, 'Computer Science');
