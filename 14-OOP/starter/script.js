@@ -261,12 +261,41 @@ console.log(ford.speedUS);
 console.log(ford.brake());
 console.log(ford.speedUS);
 
-// Inheritance
+// Inheritance using constructor functions
 const Student = function (firstName, birthYear, course) {
-  Person(firstName, birthYear);
+  // Person(firstName, birthYear);
+  // This acts as a usual function call without the 'new' keyword. For a usual function, this keyword is undefined.
+  // Hence, this throws the error:
+  // Uncaught TypeError: Cannot set properties of undefined (setting 'firstName')
+  // We use Person.call() to resolve this as the call() can set a this keyword for the function call.
+
+  Person.call(this, firstName, birthYear);
   this.course = course;
 };
+// Setting prototype manually using Object.create
+Student.prototype = Object.create(Person.prototype);
 Student.prototype.intro = function () {
   console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
 };
 const mike = new Student('Mike', 2020, 'Computer Science');
+mike.intro();
+console.log(mike.calcAge());
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike.__proto__.constructor);
+console.log(Student.prototype);
+console.log(Student.prototype.constructor);
+// Student.prototype.constructor should ideally point back to the student.
+//But, here it points back to Person.
+console.dir(Student.prototype.constructor);
+// And the reason for that is we set the prototype property of Student with Object.create.
+// This makes it so that the constructor of Student.prototype be Person.
+// Since we rely on constructor property at times, we need to fix this.
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
